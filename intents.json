@@ -1,0 +1,25 @@
+{
+  "intents": [
+    {"tag": "greeting",
+     "patterns": ["hi", "hello", "hey", "good morning", "namaste"],
+     "responses": ["Hello! I'm DevBot. Ask me about Python, ML, or Deven's projects.",
+                    "Hi there! Want to hear about a project, or a Python tip?"]},
+    {"tag": "projects",
+     "patterns": ["what projects have you built", "show me your projects", "portfolio", "your work", "what have you made"],
+     "responses": ["Deven has built: a Digit Recognizer (98.9% accuracy), a Spam SMS Classifier, a Movie Recommender, this chatbot, and a Text Summarizer. All on his GitHub!"]},
+    {"tag": "python_tip",
+     "patterns": ["give me a python tip", "python tip", "teach me python", "learn python"],
+     "responses": ["Tip: a variable is just a labelled box - name = 'Deven' stores text you can reuse anywhere.",
+                    "Tip: print() is your best debugging friend. When code misbehaves, print the values."]},
+    {"tag": "ml_question",
+     "patterns": ["what is machine learning", "explain machine learning", "what is ml", "what is ai"],
+     "responses": ["Machine Learning is teaching computers to find patterns in data instead of hand-writing every rule. Show it 1,000 spam messages, and it learns to spot the 1,001st."]},
+    {"tag": "about_deven",
+     "patterns": ["who is deven", "who made you"],
+     "responses": ["Deven is an IT student at SAL College of Engineering, Ahmedabad, learning Python, ML and AI by building projects in public."]},
+    {"tag": "goodbye",
+     "patterns": ["bye", "goodbye", "see you", "exit"],
+     "responses": ["Bye! Keep building.", "See you soon - and check out the projects on GitHub!"]}
+  ],
+  "fallback": "I didn't quite get that. Try asking about Deven's projects, a Python tip, or what machine learning is."
+}
