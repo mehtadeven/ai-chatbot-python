@@ -1,12 +1,12 @@
-# 🤖 DevBot — AI Chatbot in Python
+![DevBot](assets/banner.svg)
 
+# DevBot — AI Chatbot in Python
 
-![Banner](assets/banner.svg)
-![Python](https://img.shields.io/badge/Python-3.10+-blue) ![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-orange) ![Status](https://img.shields.io/badge/status-working-brightgreen)
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white) ![Chatbot](https://img.shields.io/badge/Type-Chatbot-10b981) ![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-F7931E?logo=scikitlearn&logoColor=white)
 
-A small chatbot that actually *understands* what you mean — not with if-else rules, but with **TF-IDF + cosine similarity** intent matching, the same idea behind real customer-support bots.
+A conversational bot that matches **intent**, not keywords. DevBot answers questions about Deven's projects, Python, and machine learning — and, by design, honestly says *"I didn't quite get that"* when a question is outside what it knows.
 
-## 💬 Demo
+## Conversation sample
 
 ```
 You:    what projects have you built?
@@ -21,36 +21,41 @@ You:    tell me a joke about quantum physics
 DevBot: I didn't quite get that. Try asking about Deven's projects...
 ```
 
-That last one matters: when no intent is similar enough, DevBot honestly says so instead of guessing — a real design decision, not a bug.
+## How it works
 
-## ⚙️ How it works
+![Pipeline](assets/flow.svg)
 
-1. `intents.json` holds example phrases for each topic (greetings, projects, Python tips, ML questions…)
-2. TF-IDF converts every phrase into a numeric vector (common words like "tell me" are ignored)
-3. Your message is vectorised the same way; **cosine similarity** finds the closest intent
-4. If the best match is too weak (below 0.3), the fallback reply is used
+1. `intents.json` defines topics with example phrasings and responses
+2. TF-IDF (with English stop-words removed) vectorises every example
+3. The user's message is vectorised identically; cosine similarity selects the closest intent
+4. Below a 0.3 similarity threshold, the fallback response is returned instead of a guess
 
-## 🚀 Run it
+That threshold is a deliberate engineering choice: an earlier version without stop-word removal confidently answered a quantum-physics joke with Deven's biography. The fix — and the reasoning — is documented in the code.
+
+## Quick start
 
 ```bash
 pip install -r requirements.txt
-python chatbot.py   # interactive chat
-python demo.py      # scripted demo questions
+python chatbot.py   # interactive chat (type 'bye' to exit)
+python demo.py      # scripted demonstration
 ```
 
-Add your own topics by editing `intents.json` — no code changes needed.
+New topics need no code: add an intent to `intents.json` and restart.
 
-## 🧠 What I learned
+## What this project demonstrates
 
-- Intent classification: how chatbots map free text to actions
-- Why stop-words and similarity thresholds matter (my first version confidently answered a quantum-physics joke with Deven's bio — the threshold + stop-words fixed it)
-- Designing honest fallbacks instead of confident nonsense
+- Intent classification, the core of support and FAQ bots
+- Similarity thresholds and honest fallback design
+- Data-driven behaviour: the bot's knowledge lives in JSON, not code
 
-## 🔮 Next steps
+## Roadmap
 
-- [ ] Train a Logistic Regression classifier on the intents
-- [ ] Add a Streamlit web UI
-- [ ] Connect a real LLM API for open-ended questions
+- Logistic Regression intent classifier
+- Streamlit web interface
+- Optional LLM API for open-ended questions
 
 ---
-Built by [Mehta Deven](https://github.com/mehtadeven) — IT student learning ML/AI in public.
+
+**Author:** [Mehta Deven](https://github.com/mehtadeven) — IT student at SAL College of Engineering, Ahmedabad, building a public portfolio in Python, Machine Learning and AI.
+**Portfolio:** [mehtadeven.github.io/portfolio](https://mehtadeven.github.io/portfolio/)
+
