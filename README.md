@@ -2,7 +2,7 @@
 
 # DevBot — AI Chatbot in Python
 
-![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white) ![Chatbot](https://img.shields.io/badge/Type-Chatbot-10b981) ![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-F7931E?logo=scikitlearn&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white) ![Chatbot](https://img.shields.io/badge/Type-Chatbot-10b981) ![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-F7931E?logo=scikitlearn&logoColor=white) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE) ![Stars](https://img.shields.io/github/stars/mehtadeven/ai-chatbot-python?style=social)
 
 A conversational bot that matches **intent**, not keywords. DevBot answers questions about Deven's projects, Python, and machine learning — and, by design, honestly says *"I didn't quite get that"* when a question is outside what it knows.
 
@@ -42,6 +42,25 @@ python demo.py      # scripted demonstration
 
 New topics need no code: add an intent to `intents.json` and restart.
 
+## The unknown-question log
+
+Every question the bot cannot answer is appended to `unknown_questions.txt`
+(one question per line, created automatically on first use). It is a to-do
+list for teaching the bot: read it, spot repeated questions, and add an
+intent for them in `intents.json`. The file is git-ignored, since it holds
+real conversations.
+
+## Run the tests
+
+```bash
+pip install pytest
+python -m pytest
+```
+
+The tests check that known questions get real answers, off-topic questions
+get the honest fallback, unknown questions are logged, and every intent in
+`intents.json` is well-formed.
+
 ## What this project demonstrates
 
 - Intent classification, the core of support and FAQ bots
@@ -53,6 +72,15 @@ New topics need no code: add an intent to `intents.json` and restart.
 - Logistic Regression intent classifier
 - Streamlit web interface
 - Optional LLM API for open-ended questions
+
+## Contributing
+
+Contributions are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md) for
+setup, how to run the tests, and how to add a new intent.
+
+## Licence
+
+MIT — see [LICENSE](LICENSE).
 
 ---
 
