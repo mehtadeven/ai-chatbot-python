@@ -52,6 +52,16 @@ def test_known_question_is_not_logged(bot, tmp_path):
     assert not log_file.exists() or log_file.read_text() == ""
 
 
+def test_stats_count_the_bots_knowledge():
+    from stats import count_stats
+
+    stats = count_stats(str(INTENTS_PATH))
+    data = load_intents()
+    assert stats["intents"] == len(data["intents"])
+    assert stats["patterns"] == sum(len(i["patterns"]) for i in data["intents"])
+    assert stats["responses"] >= stats["intents"]
+
+
 def test_every_intent_has_patterns_and_responses():
     data = load_intents()
     assert data["intents"], "intents list is empty"
