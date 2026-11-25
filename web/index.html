@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevBot — Live Demo · Deven Mehta</title>
+  <meta name="description" content="DevBot: a TF-IDF intent-matching chatbot that honestly says when it doesn't know, and logs what it couldn't answer. Runs in your browser.">
+  <meta property="og:title" content="DevBot — an honest chatbot, live demo">
+  <meta property="og:description" content="Ask DevBot about Deven's projects, Python or ML. It admits when it doesn't know.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="https://mehtadeven.github.io/">Deven<span>.</span>Mehta</a>
+    <nav>
+      <a href="https://mehtadeven.github.io/#projects">← All projects</a>
+      <a href="https://github.com/mehtadeven/ai-chatbot-python">Source code ↗</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <p class="eyebrow">Project 04 · NLP · Live demo</p>
+      <h1>Dev<span class="grad">Bot</span></h1>
+      <p class="lede">A small chatbot that answers questions about me and my work — and says
+        <em>"I don't know"</em> instead of making things up. Every reply shows how it was chosen.</p>
+      <div class="chips">
+        <span class="chip info">TF-IDF intent matching</span>
+        <span class="chip info">confidence threshold</span>
+        <span class="chip"><span id="intent-count">–</span> intents · <span id="pattern-count">–</span> patterns</span>
+      </div>
+    </section>
+
+    <div class="chat-layout">
+      <section class="card chat">
+        <div id="log" class="log" aria-live="polite"></div>
+        <div class="chips suggestions">
+          <button class="chip ask" type="button" data-ask="What projects have you built?">What projects have you built?</button>
+          <button class="chip ask" type="button" data-ask="What is machine learning?">What is machine learning?</button>
+          <button class="chip ask" type="button" data-ask="Give me a Python tip">Give me a Python tip</button>
+          <button class="chip ask" type="button" data-ask="Who is Deven?">Who is Deven?</button>
+          <button class="chip ask" type="button" data-ask="What's the weather in Ahmedabad?">Something it wasn't taught</button>
+        </div>
+        <form id="form" class="composer" autocomplete="off">
+          <label for="message" class="sr-only">Your message</label>
+          <input id="message" type="text" placeholder="Ask DevBot something…" maxlength="300">
+          <button type="submit">Send</button>
+        </form>
+      </section>
+
+      <aside class="card side">
+        <h2>Questions it couldn't answer</h2>
+        <p class="sub">The Python version writes these to <code>unknown_questions.txt</code> so they can be taught next. Here they stay in your browser only.</p>
+        <ul id="unknown" class="unknown"></ul>
+        <button id="clear-unknown" class="ghost small" type="button">Clear list</button>
+      </aside>
+    </div>
+
+    <section class="card">
+      <h2>How it works</h2>
+      <p class="sub">The same logic as <code>chatbot.py</code>, reading the same <code>intents.json</code>.</p>
+      <ol class="steps">
+        <li><b>Intents</b> — each topic has example phrases ("patterns") and replies.</li>
+        <li><b>Vectorise</b> — TF-IDF turns every pattern, and your message, into numbers.</li>
+        <li><b>Match</b> — cosine similarity finds the closest pattern; its topic's reply is used.</li>
+        <li><b>Be honest</b> — below 0.3 similarity, DevBot says it doesn't know and logs the question.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site">
+    <span>Built by <a href="https://mehtadeven.github.io/">Deven Mehta</a> · AI/ML builder · Ahmedabad</span>
+    <a href="https://github.com/mehtadeven/ai-chatbot-python">github.com/mehtadeven/ai-chatbot-python</a>
+  </footer>
+
+  <script src="tfidf.js"></script>
+  <script src="devbot-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
