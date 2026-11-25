@@ -1,10 +1,14 @@
-![DevBot](assets/banner.svg)
+[![DevBot — try the live demo](assets/readme/banner.png)](https://mehtadeven.github.io/ai-chatbot-python/)
 
 # DevBot — AI Chatbot in Python
 
 [![Live demo](https://img.shields.io/badge/Live%20demo-try%20it%20in%20your%20browser-22d3ee?logo=googlechrome&logoColor=white)](https://mehtadeven.github.io/ai-chatbot-python/) ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white) ![Chatbot](https://img.shields.io/badge/Type-Chatbot-10b981) ![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-F7931E?logo=scikitlearn&logoColor=white) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE) ![Stars](https://img.shields.io/github/stars/mehtadeven/ai-chatbot-python?style=social)
 
-**▶ [Try the live demo](https://mehtadeven.github.io/ai-chatbot-python/)** — it runs in your browser, nothing to install.
+<p align="center">
+  <a href="https://mehtadeven.github.io/ai-chatbot-python/"><b>▶ Try the live demo</b></a> &nbsp;·&nbsp;
+  <a href="#how-it-works">How it works</a> &nbsp;·&nbsp;
+  <a href="https://mehtadeven.github.io/">Portfolio</a>
+</p>
 
 A conversational bot that matches **intent**, not keywords. DevBot answers questions about Deven's projects, Python, and machine learning — and, by design, honestly says *"I didn't quite get that"* when a question is outside what it knows.
 
@@ -43,6 +47,10 @@ DevBot: I didn't quite get that. Try asking about Deven's projects...
 *Real run of `python demo.py` — a scripted DevBot conversation, including the honest fallback for an off-topic question.*
 
 ## Live demo
+
+[![Screenshot of the DevBot live demo](assets/readme/demo.png)](https://mehtadeven.github.io/ai-chatbot-python/)
+
+**Design:** a *friendly pastel chat* theme — lavender-to-mint gradients, rounded Fredoka + Nunito type, a phone-style chat window and sticky notes for the questions DevBot couldn't answer.
 
 **[mehtadeven.github.io/ai-chatbot-python](https://mehtadeven.github.io/ai-chatbot-python/)** — chat with DevBot in your browser. Each reply shows the matched intent, the closest pattern and its similarity score, and questions it can't answer appear in a side panel (stored only in your browser, like `unknown_questions.txt` in the Python version).
 
